@@ -7,47 +7,28 @@ namespace MyDictionary
     {
         static void Main(string[] args)
         {
+            //Yapıyı anlamak için yazılan satır...
             Dictionary<int, string> sozluk = new Dictionary<int, string>();
             sozluk.Add(58, "Sivas");
 
-            MyDict<int, string> plaka = new MyDict<int, string>();
-            plaka.Add(77, "Yalova");
-            
-        }
-    }
-    class MyDict<Tkeys,Tvalues>
-    {
-        Tkeys[] tkeys;
-        Tvalues[] tvalues;
-        Tkeys[] tempKeys;
-        Tvalues[] tempValues;
-
-        public MyDict()
-        {
-            tkeys = new Tkeys[0];
-            tvalues = new Tvalues[0];
-
-        }
-
-        public void Add(Tkeys keyitem,Tvalues keyvalue)
-        {
-            tempKeys = tkeys;
-            tempValues = tvalues;
-
-            tkeys = new Tkeys[tkeys.Length + 1];
-            tvalues = new Tvalues[tvalues.Length + 1];
-
-            for (int i = 0; i < tempKeys.Length; i++)
+            MyDict<int, string> plakalar = new MyDict<int, string>();
+            plakalar.Add(77, "Yalova");
+            plakalar.Add(35, "İzmir");
+            plakalar.Add(45, "Manisa");
+            plakalar.Add(06, "Ankara");
+            plakalar.Add(09, "Aydın");
+            plakalar.Add(58, "Sivas");
+            foreach (var plakano in plakalar.Keys)
+            {               
+                Console.WriteLine(plakano);
+            }
+            foreach (var sehir in plakalar.Values)
             {
-                tkeys[i] = tempKeys[i];
-                tvalues[i] = tempValues[i];
+                Console.WriteLine(sehir);
             }
 
-            tkeys[tkeys.Length - 1] = keyitem;
-            tvalues[tvalues.Length - 1] = keyvalue;
 
         }
-
     }
-  
+    
 }
